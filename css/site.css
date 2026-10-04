@@ -37,7 +37,7 @@ section.alt{background:rgba(12,6,26,.42)}
 header.site{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(20,11,38,.72);border-bottom:1px solid rgba(255,255,255,.08)}
 .bar{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.brand .mark{font-size:1.5rem;filter:drop-shadow(0 0 10px rgba(255,107,199,.8))}
+.brand .mark{height:44px;width:auto;display:block;filter:drop-shadow(0 0 10px rgba(255,107,199,.55))}
 .brand .name{font-family:Caveat,cursive;font-size:1.9rem;font-weight:700}
 nav.main{margin-left:auto;display:flex;align-items:center;gap:20px}
 nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
@@ -151,3 +151,13 @@ footer.site{padding:50px 0 60px;text-align:center;border-top:1px solid rgba(255,
 .custom-head{color:var(--pink);margin-top:74px}
 .single.custom{border-color:rgba(255,107,199,.35);background:linear-gradient(180deg,rgba(255,107,199,.1),rgba(255,255,255,.04))}
 .placeholder-note{opacity:.75;margin:-14px 0 34px;font-style:italic}
+
+/* AZ Tech bar (2026-10-04) */
+.mockbar{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.mockbar .azt{display:inline-flex;align-items:center;gap:8px;color:#e9def7;text-decoration:none}
+.mockbar .azt img{width:20px;height:20px;display:block}
+.mockbar .azt:hover b{text-decoration:underline}
+.mockbar .sep{opacity:.5}.mockbar .mock{opacity:.85}
+.foot-brand{display:flex;align-items:center;gap:8px}.foot-brand img{height:30px;width:auto}
+@media(max-width:700px){ .mockbar .sep,.mockbar .mock{display:none} }
+@media(max-width:480px){ .brand .mark{height:34px} .brand .name{font-size:1.5rem} nav.main .ig{padding:7px 12px;font-size:.85rem} }

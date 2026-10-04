@@ -8,5 +8,6 @@ Tap-to-follow NFC tags, 3D-printed by hand. A first look for Nessa to react to.
 - The order form is mocked: nothing is sent and no payment is taken. All payment happens in person; the site is an order aggregator only.
 - Ready-made prices are Nessa's own. **Custom prices are a first draft** pending her approval.
 - Hero art and the tag photo are AI placeholders, to be swapped for photos of her own work.
+- Logo: Nessa's pick (2026-10-01), the C body with D's face; the top bar links to AZ Tech's websites page.
 
 Built by AZ Technology Solutions.
