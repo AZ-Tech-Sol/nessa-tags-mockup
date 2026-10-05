@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <title>Nessa's Tags — tap-to-follow NFC tags, printed by hand</title>
 <meta name="description" content="Little 3D-printed NFC tags that open your Instagram with one tap. Made by hand, one at a time, in any colour you like. Singles and batches for markets, teams and shops.">
 <link rel="icon" href="assets/favicon.png" sizes="64x64">
@@ -16,7 +15,7 @@
 </head>
 <body>
 
-<div class="mockbar"><a class="azt" href="https://aztechsol.com/websites/" target="_blank" rel="noopener"><img src="assets/aztech-brandmark.svg" alt="" width="20" height="20"><span>Like this site? <b>Get your own</b> &rarr;</span></a><span class="sep" aria-hidden="true">·</span><span class="mock">Mockup<span class="long"> — nothing here takes orders or payments yet</span></span></div>
+<div class="mockbar"><a class="azt" href="https://aztechsol.com/websites/" target="_blank" rel="noopener"><img src="assets/aztech-brandmark.svg" alt="" width="20" height="20"><span>Like this site? <b>Get your own</b> &rarr;</span></a></div>
 
 <header class="site">
   <div class="wrap bar">
@@ -71,8 +70,7 @@
       </div>
     </div>
     <figure class="photo">
-      <img src="assets/tag.png" alt="Placeholder image: a small round 3D-printed tag with a butterfly on it, resting beside a phone" width="1024" height="1024" loading="lazy">
-      <figcaption>Placeholder picture &mdash; to be swapped for photos of Nessa&rsquo;s own tags.</figcaption>
+      <img src="assets/tag.png" alt="A small round 3D-printed tag with a butterfly on it, resting beside a phone" width="1024" height="1024" loading="lazy">
     </figure>
   </div>
 </section>
@@ -129,7 +127,6 @@
         <a class="btn btn-small" href="#order">Start this batch</a>
       </div>
     </div>
-    <p class="fine center placeholder-note">The 150 price is a first draft &mdash; Nessa to confirm.</p>
 
     <h3 class="center layer-head custom-head">✦ Custom designs ✦</h3>
     <p class="lede center">Your own shape, your name cut into it, your logo, or an idea you describe and Nessa draws. Every custom run starts with a picture for you to approve.</p>
@@ -177,7 +174,6 @@
         <a class="btn btn-small" href="#order">Ask about this</a>
       </div>
     </div>
-    <p class="fine center placeholder-note">Custom prices above are a first draft for Nessa to approve &mdash; not final.</p>
 
     <div class="deposit">
       <h3>How paying works</h3>
@@ -220,7 +216,7 @@
   <div class="wrap">
     <div class="order">
       <h2>Start an order</h2>
-      <p>Tell Nessa what you want and she&rsquo;ll come back to you to sort out the details. Nothing is paid here &mdash; you settle up in person when you meet.</p>
+      <p>Tell Nessa what you want, then send it to her on Instagram and she&rsquo;ll come back to you to sort out the details. Nothing is paid here &mdash; you settle up in person when you meet.</p>
       <form id="orderform" novalidate>
         <div class="row2">
           <input type="text" id="oname" placeholder="Your name" aria-label="Your name" autocomplete="name" required>
@@ -248,11 +244,12 @@
         </div>
         <input type="url" id="olink" placeholder="The link it should open (your Instagram, TikTok…)" aria-label="The link the tag should open">
         <textarea id="onote" rows="3" placeholder="Colours, shapes, the vibe you're after…" aria-label="What you would like"></textarea>
-        <button type="submit">Send it to Nessa ✦</button>
+        <button type="submit">Send it to Nessa on Instagram ✦</button>
       </form>
       <div class="done">
-        <b>Got it.</b>
-        Thanks <span id="sentname">—</span>. Nessa will message you back to agree the details and a time to meet. Nothing is owed until then.
+        <b>Your order is copied.</b>
+        Thanks <span id="sentname">—</span>. Instagram is opening a message to @lochnessaaz: paste it in and send. If it didn't open, <a id="dmlink" href="https://ig.me/m/lochnessaaz" target="_blank" rel="noopener">tap here to message Nessa</a>. Nothing is owed until you agree the details.
+        <textarea id="ordertext" rows="6" readonly aria-label="Your order, ready to paste"></textarea>
       </div>
       <p class="or">or simply &mdash; <a href="https://www.instagram.com/lochnessaaz" rel="noopener" target="_blank">message @lochnessaaz on Instagram</a></p>
     </div>
@@ -271,25 +268,56 @@
   <div class="wrap">
     <p class="foot-brand"><img src="assets/nessa-logo.svg" alt="" width="40" height="30"> Nessa&rsquo;s Tags</p>
     <p class="fine">Tap-to-follow tags, printed by hand. <a href="https://www.instagram.com/lochnessaaz" rel="noopener" target="_blank">@lochnessaaz</a></p>
-    <p class="fine legal">Mockup prepared by <a href="https://aztechsol.com/websites/" target="_blank" rel="noopener">AZ Technology Solutions</a> &mdash; not a live shop.</p>
+    <p class="fine legal">Site by <a href="https://aztechsol.com/websites/" target="_blank" rel="noopener">AZ Technology Solutions</a>.</p>
   </div>
 </footer>
 
 <script>
-/* Mocked: nothing is sent from this form yet. */
+/* The order is composed here, copied, and sent by the customer as an Instagram DM. No server, no email. */
 document.getElementById('orderform').addEventListener('submit', function (e) {
   e.preventDefault();
-  var name = document.getElementById('oname');
-  var email = document.getElementById('oemail');
-  var bad = false;
-  [name, email].forEach(function (f) {
-    f.style.borderColor = '';
-    if (!f.value.trim()) { f.style.borderColor = '#ff6b9d'; bad = true; }
-  });
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var name = document.getElementById('oname'), email = document.getElementById('oemail'), bad = false;
+  [name, email].forEach(function (f) { f.style.borderColor = ''; if (!f.value.trim()) { f.style.borderColor = '#ff6b9d'; bad = true; } });
   if (bad) return;
-  document.getElementById('sentname').textContent = name.value.trim();
+  var lines = ['Hi Nessa! I\'d like to order tags.', 'Name: ' + v('oname')];
+  if (v('ohandle')) lines.push('Instagram: ' + v('ohandle'));
+  lines.push('Email: ' + v('oemail'));
+  if (v('ophone')) lines.push('Phone: ' + v('ophone'));
+  if (v('okind')) lines.push('Kind: ' + v('okind'));
+  if (v('osize')) lines.push('How many: ' + v('osize'));
+  if (v('olink')) lines.push('Tag should open: ' + v('olink'));
+  if (v('onote')) lines.push('Notes: ' + v('onote'));
+  var msg = lines.join('\n');
+  document.getElementById('ordertext').value = msg;
+  document.getElementById('sentname').textContent = v('oname');
   document.querySelector('.order').classList.add('sent');
+  try { navigator.clipboard && navigator.clipboard.writeText(msg); } catch (x) {}
+  if (window.umami) umami.track('order-dm', { kind: v('okind') || 'unsure', size: v('osize') || 'unsure' });
+  window.open('https://ig.me/m/lochnessaaz', '_blank', 'noopener');
 });
+</script>
+<script>
+/* Analytics: self-hosted Umami. ?notme=1 stops counting this browser, ?countme=1 undoes it.
+   A tag tap arrives with ?utm_source=nfc (write the tag with the URL in the README), and is also sent as a 'tag-tap' event. */
+(function () {
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.has('notme')) localStorage.setItem('umami.disabled', '1');
+    if (q.has('countme')) localStorage.removeItem('umami.disabled');
+  } catch (x) {}
+  var s = document.createElement('script');
+  s.defer = true; s.src = 'https://stats.aztechsol.com/script.js';
+  s.setAttribute('data-website-id', '80557cb1-6a7b-46df-86e7-56800b2b3ebe');
+  s.setAttribute('data-domains', 'az-tech-sol.github.io');
+  s.onload = function () {
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('utm_source') === 'nfc' && window.umami) umami.track('tag-tap', { tag: q.get('utm_content') || 'nessa' });
+    } catch (x) {}
+  };
+  document.head.appendChild(s);
+})();
 </script>
 </body>
 </html>

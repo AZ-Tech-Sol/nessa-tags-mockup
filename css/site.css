@@ -161,3 +161,4 @@ footer.site{padding:50px 0 60px;text-align:center;border-top:1px solid rgba(255,
 .foot-brand{display:flex;align-items:center;gap:8px}.foot-brand img{height:30px;width:auto}
 @media(max-width:700px){ .mockbar .sep,.mockbar .mock{display:none} }
 @media(max-width:480px){ .brand .mark{height:34px} .brand .name{font-size:1.5rem} nav.main .ig{padding:7px 12px;font-size:.85rem} }
+.order .done textarea{width:100%;margin-top:12px;font:inherit;font-size:.9rem;background:rgba(0,0,0,.25);color:inherit;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:10px}

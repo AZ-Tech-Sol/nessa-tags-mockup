@@ -1,13 +1,14 @@
-# Nessa's Tags — site mockup
+# Nessa's Tags — website
 
-Tap-to-follow NFC tags, 3D-printed by hand. A first look for Nessa to react to.
+Tap-to-follow NFC tags, 3D-printed by hand. Treated as live from 2026-10-04.
 
 **Live at:** https://az-tech-sol.github.io/nessa-tags-mockup/
 
-- `noindex` + robots.txt — it must not compete with anything real in search.
-- The order form is mocked: nothing is sent and no payment is taken. All payment happens in person; the site is an order aggregator only.
-- Ready-made prices are Nessa's own. **Custom prices are a first draft** pending her approval.
-- Hero art and the tag photo are AI placeholders, to be swapped for photos of her own work.
-- Logo: Nessa's pick (2026-10-01), the C body with D's face; the top bar links to AZ Tech's websites page.
+- **Orders:** the form composes the order, copies it, and opens an Instagram DM to @lochnessaaz; the customer pastes and sends. No server, no email on the page. Payment happens in person.
+- **Analytics:** self-hosted Umami at stats.aztechsol.com, website "Nessa's Tags" (`80557cb1-6a7b-46df-86e7-56800b2b3ebe`), scoped to `az-tech-sol.github.io`. `?notme=1` stops counting a browser, `?countme=1` undoes it. Events: `tag-tap` (a visit from a tag), `order-dm` (an order sent to her DMs).
+- **The tag URL** (write this to Nessa's own NFC tag so its taps count separately from everything else):
+  `https://az-tech-sol.github.io/nessa-tags-mockup/?utm_source=nfc&utm_medium=tag&utm_campaign=nessa`
+- **Logo:** Nessa's pick (2026-10-01), the C body with D's face; the top bar links to AZ Tech's websites page.
+- The tag photo and hero art are still AI-made stand-ins until photos of her own tags arrive.
 
 Built by AZ Technology Solutions.
